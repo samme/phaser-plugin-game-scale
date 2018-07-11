@@ -6,8 +6,8 @@ Scale or resize the game canvas.
 Modes
 -----
 
-- `fit` — scale the canvas up or down to fit the container, within min/max lengths (if set).
-- `resize` — change the game dimensions to fit the container, within min/max lengths (if set).
+- `fit` — scale the canvas up or down to fit the container, and within min/max lengths (if set).
+- `resize` — change the game dimensions to fit the container, and within min/max lengths (if set).
 - `resize-and-fit` — resize within min/max lengths, then scale the canvas to fit any remaining space within the container.
 - `none` — set the canvas scale to 100%.
 
@@ -20,7 +20,7 @@ Use
 new Phaser.Game({
   // ...
   plugins: {
-    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, start: true }]
+    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, mapping: 'gameScale' }]
   }
   // ...
 });
@@ -29,15 +29,15 @@ new Phaser.Game({
 Set the scale mode:
 
 ```javascript
-// Within a postBoot callback, use the `game` argument.
-// Within a scene, use `this.sys.game`.
-game.plugins.get('GameScalePlugin').setMode('resize');
+// Within a scene:
+this.gameScale.setMode('resize');
 ```
 
 Set several options (defaults shown):
 
 ```javascript
-game.plugins.get('GameScalePlugin').configure({
+// Within a scene:
+this.gameScale.configure({
   debounce: false,
   debounceDelay: 100,
   maxHeight: Infinity,

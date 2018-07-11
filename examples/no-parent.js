@@ -1,4 +1,4 @@
-var caption1, caption2, caption3, cursor, gameScalePlugin;
+var caption1, caption2, caption3, cursor;
 var modes = ['fit', 'resize', 'resize-and-fit', 'none'];
 var colors = window.colors;
 
@@ -8,13 +8,12 @@ window.game = new Phaser.Game({
   backgroundColor: colors.navy,
 
   plugins: {
-    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, start: true }]
+    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, mapping: 'gameScale' }]
   },
 
   callbacks: {
     postBoot: function (game) {
-      gameScalePlugin = game.plugins.get('GameScalePlugin');
-      gameScalePlugin.configure({
+      game.plugins.get('GameScalePlugin').configure({
         debounce: false,
         debounceDelay: 100,
         maxWidth: 960,
@@ -41,15 +40,15 @@ window.game = new Phaser.Game({
       cursor = this.add.graphics().lineStyle(3, 0xff00ff).strokeRect(0, 0, 16, 16);
 
       this.input.on('pointerup', function () {
-        gameScalePlugin.setMode(modes[(1 + modes.indexOf(gameScalePlugin.mode)) % modes.length]);
-      });
+        this.gameScale.setMode(modes[(1 + modes.indexOf(this.gameScale.mode)) % modes.length]);
+      }, this);
     },
     update: function () {
       var config = this.sys.game.config;
 
       caption1.setText(config.width + ' ' + config.height);
-      caption2.setText(JSON.stringify(gameScalePlugin, null, 2));
-      caption3.setText(JSON.stringify(gameScalePlugin.getBounds(), null, 2));
+      caption2.setText(JSON.stringify(this.gameScale, null, 2));
+      caption3.setText(JSON.stringify(this.gameScale.getBounds(), null, 2));
 
       cursor.setPosition(this.input.activePointer.x, this.input.activePointer.y);
     }
