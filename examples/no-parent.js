@@ -42,6 +42,14 @@ window.game = new Phaser.Game({
       this.input.on('pointerup', function () {
         this.gameScale.setMode(modes[(1 + modes.indexOf(this.gameScale.mode)) % modes.length]);
       }, this);
+
+      this.events.on('resize', function (width, height) {
+        console.log('Scene "resize" event', width, height);
+      });
+
+      this.sys.game.events.on('resize', function (width, height) {
+        console.log('Game "resize" event', width, height);
+      });
     },
     update: function () {
       var config = this.sys.game.config;

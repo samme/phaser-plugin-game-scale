@@ -1,3 +1,5 @@
 extends: semistandard
 globals:
   colors: no
+rules:
+  no-console: 'off'
