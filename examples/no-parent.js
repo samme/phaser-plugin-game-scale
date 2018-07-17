@@ -14,14 +14,13 @@ window.game = new Phaser.Game({
   callbacks: {
     postBoot: function (game) {
       game.plugins.get('GameScalePlugin').configure({
-        debounce: false,
+        debounce: true,
         debounceDelay: 100,
         maxWidth: 960,
         maxHeight: 960,
         minWidth: 320,
         minHeight: 320,
-        mode: Phaser.Plugins.GameScalePlugin.FIT,
-        snap: 20
+        mode: Phaser.Plugins.GameScalePlugin.FIT
       });
     }
   },

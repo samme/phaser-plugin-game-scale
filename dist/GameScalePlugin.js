@@ -4,8 +4,6 @@ var Clamp = Phaser.Math.Clamp;
 var SnapFloor = Phaser.Math.Snap.Floor;
 var _window = window;
 var _windowBounds = new Phaser.Geom.Rectangle();
-var _clearTimeout = clearTimeout;
-var _setTimeout = setTimeout;
 var NONE = 'none';
 var FIT = 'fit';
 var RESIZE = 'resize';
@@ -17,6 +15,7 @@ var GameScalePlugin = new Phaser.Class({
 
   debounce: false,
   debounceDelay: 100,
+  debounceTimer: null,
   maxHeight: Infinity,
   maxWidth: Infinity,
   minHeight: 0,
@@ -41,10 +40,13 @@ var GameScalePlugin = new Phaser.Class({
   stop: function () {
     this.game.events.on('prestep', this.gamePreStep, this);
     _window.removeEventListener('resize', this.onResize);
-    _clearTimeout(this.debounceTimeout);
   },
 
-  gamePreStep: function () {
+  gamePreStep: function (time, delta) {
+    if (this.debounce && this.debounceTimer > 0) {
+      this.debounceTimer -= delta;
+      if (this.debounceTimer <= 0) this.setPendingRefresh();
+    }
     if (this.needsRefresh) this.refresh();
   },
 
@@ -120,8 +122,7 @@ var GameScalePlugin = new Phaser.Class({
 
     if (this.debounce) {
       this.needsRefresh = false;
-      _clearTimeout(this.debounceTimeout);
-      this.debounceTimeout = _setTimeout(this.setPendingRefresh, this.debounceDelay);
+      this.debounceTimer = this.debounceDelay;
     }
   },
 
