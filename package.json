@@ -15,7 +15,8 @@
   "keywords": [
     "phaser",
     "phaser3",
-    "phaser-plugin"
+    "phaser-plugin",
+    "phaser3-plugin"
   ],
   "author": "samme (https://github.com/samme)",
   "license": "ISC",
