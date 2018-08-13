@@ -26,6 +26,20 @@ new Phaser.Game({
 });
 ```
 
+If you're using modules, you can use the default export instead:
+
+```javascript
+import GameScalePlugin from 'phaser-plugin-game-scale';
+
+new Phaser.Game({
+  // ...
+  plugins: {
+    global: [{ key: 'GameScalePlugin', plugin: GameScalePlugin, mapping: 'gameScale' }]
+  }
+  // ...
+});
+```
+
 Set the scale mode:
 
 ```javascript
