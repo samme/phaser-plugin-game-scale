@@ -14,7 +14,7 @@ var GameScalePlugin = new Phaser.Class({
   Extends: Phaser.Plugins.BasePlugin,
 
   debounce: false,
-  debounceDelay: 100,
+  debounceDelay: 50,
   debounceTimer: null,
   maxHeight: Infinity,
   maxWidth: Infinity,

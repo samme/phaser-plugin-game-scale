@@ -53,7 +53,7 @@ Set several options (defaults shown):
 // Within a scene:
 this.gameScale.configure({
   debounce: false,
-  debounceDelay: 100,
+  debounceDelay: 50,
   maxHeight: Infinity,
   maxWidth: Infinity,
   minHeight: 0,
