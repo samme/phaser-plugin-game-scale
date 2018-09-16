@@ -9,22 +9,22 @@ window.game = new Phaser.Game({
   backgroundColor: colors.navy,
 
   plugins: {
-    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, mapping: 'gameScale' }]
-  },
-
-  callbacks: {
-    postBoot: function (game) {
-      game.plugins.get('GameScalePlugin').configure({
+    global: [{
+      key: 'GameScalePlugin',
+      plugin: Phaser.Plugins.GameScalePlugin,
+      mapping: 'gameScale',
+      data: {
         debounce: false,
-        debounceDelay: 100,
-        maxWidth: 960,
-        maxHeight: 960,
-        minWidth: 320,
-        minHeight: 320,
-        mode: Phaser.Plugins.GameScalePlugin.FIT,
-        snap: 20
-      });
-    }
+        debounceDelay: 50,
+        maxHeight: Infinity,
+        maxWidth: Infinity,
+        minHeight: 0,
+        minWidth: 0,
+        mode: 'fit',
+        resizeCameras: true,
+        snap: null
+      }
+    }]
   },
 
   scene: {

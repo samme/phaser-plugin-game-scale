@@ -23,10 +23,11 @@ var GameScalePlugin = new Phaser.Class({
   scale: null,
   snap: null,
 
-  init: function () {
+  init: function (data) {
     this.onResize = this.onResize.bind(this);
     this.setPendingRefresh = this.setPendingRefresh.bind(this);
     this.game.canvas.style.transformOrigin = '0 0';
+    if (data) this.configure(data);
   },
 
   start: function () {

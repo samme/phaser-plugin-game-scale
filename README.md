@@ -20,13 +20,18 @@ Use
 new Phaser.Game({
   // ...
   plugins: {
-    global: [{ key: 'GameScalePlugin', plugin: Phaser.Plugins.GameScalePlugin, mapping: 'gameScale' }]
+    global: [{
+      key: 'GameScalePlugin',
+      plugin: Phaser.Plugins.GameScalePlugin,
+      mapping: 'gameScale',
+      data: {/* See 'Configuration'*/}
+    }]
   }
   // ...
 });
 ```
 
-If you're using modules, you can use the default export instead:
+If you're using ES6 modules, you can use the default export instead:
 
 ```javascript
 import GameScalePlugin from 'phaser-plugin-game-scale';
@@ -34,7 +39,12 @@ import GameScalePlugin from 'phaser-plugin-game-scale';
 new Phaser.Game({
   // ...
   plugins: {
-    global: [{ key: 'GameScalePlugin', plugin: GameScalePlugin, mapping: 'gameScale' }]
+    global: [{
+      key: 'GameScalePlugin',
+      plugin: GameScalePlugin,
+      mapping: 'gameScale',
+      data: {/* See 'Configuration'*/}
+    }]
   }
   // ...
 });
@@ -47,23 +57,30 @@ Set the scale mode:
 this.gameScale.setMode('resize');
 ```
 
-Set several options (defaults shown):
+Listen to a scene's `resize` event to react to game size changes.
+
+See the [examples](./examples/) for details.
+
+Configuration
+-------------
+
+These are the default settings:
 
 ```javascript
-// Within a scene:
-this.gameScale.configure({
+{
   debounce: false,
-  debounceDelay: 50,
+  debounceDelay: 50,   // Debounce interval, in ms
   maxHeight: Infinity,
   maxWidth: Infinity,
   minHeight: 0,
   minWidth: 0,
   mode: 'fit',
-  resizeCameras: true,
-  snap: null,
-});
+  resizeCameras: true, // Resize each scene camera when resizing the game
+  snap: null,          // Snap interval, in px
+}
 ```
 
-Listen to a scene's `resize` event to react to game size changes.
-
-See the [examples](./examples/) for details.
+```javascript
+// Within a scene:
+this.gameScale.configure({/* … */});
+```
