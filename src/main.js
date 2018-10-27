@@ -37,7 +37,7 @@ var GameScalePlugin = new Phaser.Class({
   },
 
   stop: function () {
-    this.game.events.on('prestep', this.gamePreStep, this);
+    this.game.events.off('prestep', this.gamePreStep, this);
     _window.removeEventListener('resize', this.onResize);
   },
 
