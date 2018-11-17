@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/samme/phaser-plugin-game-scale#readme",
   "dependencies": {
-    "phaser": "^3.12.0"
+    "phaser": "^3.15.1"
   },
   "devDependencies": {
-    "browserify": "^16.2.2",
+    "browserify": "^16.2.3",
     "colors.css": "^3.0.0",
-    "eslint": "^5.0.1",
+    "eslint": "^5.9.0",
     "eslint-config-semistandard": "^12.0.1",
     "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
