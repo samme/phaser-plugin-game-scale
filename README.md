@@ -1,7 +1,7 @@
 Phaser 3 Game Scale Plugin
 ==========================
 
-Scale or resize the game canvas.
+Scale or resize the game canvas. [Demo](https://codepen.io/samme/full/oQePbP/)
 
 Modes
 -----
@@ -24,7 +24,7 @@ new Phaser.Game({
       key: 'GameScalePlugin',
       plugin: Phaser.Plugins.GameScalePlugin,
       mapping: 'gameScale',
-      data: {/* See 'Configuration'*/}
+      data: {/* See 'Configuration' */}
     }]
   }
   // ...
@@ -43,7 +43,7 @@ new Phaser.Game({
       key: 'GameScalePlugin',
       plugin: GameScalePlugin,
       mapping: 'gameScale',
-      data: {/* See 'Configuration'*/}
+      data: {/* See 'Configuration' */}
     }]
   }
   // ...
