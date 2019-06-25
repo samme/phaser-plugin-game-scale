@@ -1,6 +1,6 @@
 {
   "name": "phaser-plugin-game-scale",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Scale or resize the game canvas",
   "main": "dist/GameScalePlugin.js",
   "scripts": {
