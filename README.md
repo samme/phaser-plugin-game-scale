@@ -1,7 +1,12 @@
 Phaser 3 Game Scale Plugin
 ==========================
 
-Scale or resize the game canvas. [Demo](https://codepen.io/samme/full/oQePbP/)
+Scale or resize the game canvas. [Demo][1]
+
+This is for Phaser 3.15 (or earlier) only. Since Phaser 3.16 just use the built-in [Scale Manager][2].
+
+[1]: https://codepen.io/samme/full/oQePbP/
+[2]: https://photonstorm.github.io/phaser3-docs/Phaser.Scale.ScaleManager.html
 
 Modes
 -----
